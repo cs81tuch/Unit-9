@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile Setup</title>
+    <style>
+        #wrapper {
+            width: 90%;
+            margin: auto;
+        }
+        h1 { color: #6C6C6C; }
+        h2 { color: #5A5A5A; }
+        h3 { color: #434343; }
+        p {
+            font-size: 1em;
+            text-indent: 1em;
+        }
+
+        .profile {
+           	width: 400px;
+            Padding: 2em 1em;
+            background-color: #fcf8e3;
+            border-radius: 12px;
+        }
+        form {
+        	
+            display: flex;
+            flex-direction: column;
+        }
+        fieldset {
+            margin-bottom: 16px;
+            border-color: #efefef;
+            border-radius: 4px;
+        }
+        label {
+            margin-left: 1em;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 90%;
+            margin-left: 1em;
+            margin-bottom: 1em;
+            font-size: 1em;
+        }
+        textarea {
+            margin-left: 1em;
+            width: 90%;
+        }
+        .button {
+            background-color:  #e0eefa;;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 600;
+            width: 100px;
+            padding: 8px 16px;
+        }
+        form span {
+            color: #eb4026;
+            margin-left: 1em;
+            margin-top: 5px;
+        }
+        code { font-weight: bold; }
+        footer {
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <address>Tae Choe  | CS 81  | Summer 2016</address>
+        <h2>Unit 9 Assignment</h2>
+    </header>
+    <main>
+        <div class="profile">
+            <h3>Ex. 14 User Profile</h3>
+            <p style="font-size: 0.8em">Fill in as much as you can.</p>
+            <form method="post" action="#" name="acctSignup" id="acctSignup">
+                <label for="userid">Profile ID: </label><input type="text" id="userid" size="20" >
+                <label for="email">E-mail: </label><input type="email" id="email" size="20" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required >
+                <label for="hobby">Hobbies: </label><textarea id="hobby" cols="26" rows="3" onFocus="showHelp(this.id)" onblur="hideHelp(this.id)"></textarea><span id="hobbyHelp" style="visibility: hidden">Enter few things or activities that you like. </span><br>
+                <label for="insp">Inspiration: </label><textarea id="insp" cols="26" rows="3" onFocus="showHelp(this.id)" onblur="hideHelp(this.id)"></textarea> <span id="inspHelp" style="visibility: hidden">You can enter quote or motto that you like, or a haiku. </span><br>
+                <label for="city">City: </label><input type="text" id="city" size="20" onFocus="showHelp(this.id)" onblur="hideHelp(this.id)"><span id="cityHelp" style="visibility: hidden">Where you are located.</span><br>
+                <input type="button" class="button" id="submit" value="Submit">
+            </form>
+
+            <p id="result"> </p>
+            <script>
+                function hideHelp(id) {
+                    var elem = id += "Help";
+                    console.log("hide: " + elem);
+                    document.getElementById(elem).style.visibility = "hidden";    
+                }
+               function showHelp(id) {
+                   var elem = id += "Help";
+                   console.log("show: " + elem);
+                    document.getElementById(elem).style.visibility = "visible";
+                }
+
+
+
+            </script>
+        </div>
+    </main>
+</div>
+</body>
+</html>

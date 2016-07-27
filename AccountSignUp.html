@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Sign Up Form</title>
+    <style>
+        #wrapper {
+            width: 85%;
+            margin: auto;
+        }
+        fieldset {
+            margin-bottom: 15px;
+            border-color: #efefef;
+            border-radius: 4px;
+        }
+        h1 { color: #6C6C6C; }
+        h2 { color: #5A5A5A; }
+        h3 { color: #434343; }
+        p {
+            font-size: 1em;
+            line-height: 150%;
+            text-indent: 1em;
+        }
+        article { margin-top: 30px; }
+        .ex { margin-left: 2rem; }
+
+        #result {
+            background-color: #ccddff;
+            text-indent: 1em;
+            line-height: 200%;
+        }
+        .f_signup {
+            Padding: 30px 30px;
+            background-color: #fcf8e3;
+            width: 400px;
+            border-radius: 12px;
+        }
+
+        form {
+            display: flex;
+            flex-flow: column;
+
+        }
+        label {
+            margin: 0 2em 0 0;
+            width: 15em;
+        }
+        input {
+            margin: 0.5em 2em 1em 0;
+            font-size: 1rem;
+            width: 20em;
+        }
+        .button {
+            background-color: #efefef;
+            border-radius: 4px;
+            font-size: 0.9em;
+            width: 100px;
+        }
+        footer {
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <address>Tae Choe  | CS 81  | Summer 2016</address>
+        <h2>Unit 9 Assignment</h2>
+    </header>
+    <main>
+    <div class="f_signup">
+        <h3>Ex.10  Account Sign Up</h3>
+        <p style="font-size: 0.8em">Required fields are marked with asterisk '*'.</p>
+        <form method="post" action="#" name="acctSignup" id="acctSignup" >
+            <label for="name">Your Name: </label><input type="text" id="name" name="name" size="30" >
+            <label for="email">*E-mail: </label><input type="email" id="email" size="30" required  onKeypress="validate()">
+            <label for="login">*Login ID: </label><input type="text" id="login" size="30" required onKeypress="validate()">
+            <label for="pwd">*Password: </label><input type="password" id="pwd" size="30" required onKeypress="validate()">
+            <label for="pwd2">*Re-enter password: </label><input type="password" id="pwd2" size="30" onKeyup="validate()">
+            <input type="button" class="button" id="submit" value="Submit">
+        </form>
+
+        <p id="result"> </p>
+        <script>
+        function validate() {
+            var result = "";
+            // disable submit button if required fields are blank
+            if ( document.getElementById("email").value == "" || document.getElementById("login").value == "" || document.getElementById("pwd").value == "" ) {
+
+                document.getElementById("submit").disabled = true;
+                document.getElementById("result").innerHTML = "Enter all required fields";
+
+            } else if ( document.getElementById("pwd").value != document.getElementById("pwd2").value ) {
+                // disable submit if the Ppasswords doesn't match 
+                document.getElementById("result").innerHTML  = "Passwords does not match";
+                document.getElementById("submit").disabled = true;
+
+             } else {
+                // everything is OK, enable submit
+                document.getElementById("result").innerHTML  = "OK, click on Submit";
+                document.getElementById("submit").disabled = false
+            }
+
+            document.getElementById("submit").onclick = function () {
+                // confirm submit
+                document.getElementById("result").innerHTML = "Thank you for signing up!";
+
+            }
+        }
+
+        </script>
+    </div>
+    </main>
+</div>
+</body>
+</html>
